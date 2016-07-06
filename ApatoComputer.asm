@@ -9,7 +9,7 @@ Out_A = $8001 		   ;Memory location for ‘Output Port A’ of W65C22 VIA
 DDR_B=$8002 		   ;Data direction register Port B of W65C22 VIA
 DDR_A=$8003 		   ;Data direction register Port A of W65C22 VIA
 
-LDA #$FF		       ;Set data direction to “output” for port “A”
+LDA #$FF		   ;Set data direction to “output” for port “A”
 STA DDR_A
 
 LDA #$FF 	           ;Stores 255 in memory address 1024. Ensures writing to memory is working
@@ -26,7 +26,7 @@ delay 	LDA #$00	   ;Clears the A register.
 loopB 	LDY #$FF 	   ;Register Y is used for the inner loop, and is set to 255
 loopA	DEY 		   ;Decrements the Y loop counter by 1
     	BNE loopA 	   ;If Y is not equal to 0, branch back to loopA, which decrements Y again
-		DEX 		   ;Decrements the X loop counter by 1
-		BNE loopB 	   ;If X is not equal to 0, branch back to loopB, which starts LoopA all over again
-		RTS		       ;Return from delay subroutine back to main
-		.END		   ;Assembler directive indicating the end of the assembly program
+	DEX 		   ;Decrements the X loop counter by 1
+	BNE loopB 	   ;If X is not equal to 0, branch back to loopB, which starts LoopA all over again
+	RTS		   ;Return from delay subroutine back to main
+	.END		   ;Assembler directive indicating the end of the assembly program
